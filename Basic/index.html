@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax_basic_exercise</title>
+</head>
+
+<body>
+    <button type="button" onclick="loadDoc()">Get data</button>
+    <p id="demo"></p>
+
+    <script>
+        function loadDoc() {
+            let xhttp = new XMLHttpRequest();
+
+            xhttp.onload = function () {
+                if (this.status == 200) {
+                    document.getElementById("demo").innerHTML =
+                        this.responseText;
+                }
+            };
+            xhttp.open("GET", "ajax.txt", true); //(method, URL, async)
+            xhttp.send();
+        }
+    </script>
+
+
+</body>
+
+</html>
